@@ -11,7 +11,7 @@
     "eslint": "eslint './**/*.{js,jsx}'",
     "build:client": "cd client && npm run build",
     "lint:client": "cd client && npm run eslint",
-    "lint:all": "npm run lint && npm run lint:client",
+    "lint:all": "npm run eslint && npm run lint:client",
     "test:client": "cd client && npm test",
     "test:all": "npm test && npm run test:client",
     "test:e2e": "cd client && npm run test:e2e"
