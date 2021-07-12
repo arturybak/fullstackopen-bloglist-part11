@@ -10,7 +10,7 @@ import NotificationR from './components/Notification'
 import Togglable from './components/Togglable'
 import {
   Switch, Route
-} from "react-router-dom"
+} from 'react-router-dom'
 
 import 'react-bulma-components/dist/react-bulma-components.min.css'
 import { Container, Columns, Hero, Heading, Section, Box } from 'react-bulma-components'
@@ -66,7 +66,7 @@ const App = () => {
             <Container>
               <Heading>
                 blogs, blogs blogs on the menu
-                    </Heading>
+              </Heading>
             </Container>
           </Hero.Body>
         </Hero>

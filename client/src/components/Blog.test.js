@@ -7,7 +7,7 @@ describe('<Blog />', () => {
   let component
 
   const user ={
-      name: 'Kandy'
+    name: 'Kandy'
   }
   const blog = {
     title: 'A very cool blog',
@@ -19,41 +19,41 @@ describe('<Blog />', () => {
 
   test('at start display only title and author', () => {
     component = render(
-        <Blog blog={blog} />
-      )
-  
+      <Blog blog={blog} />
+    )
+
     expect(component.container).toHaveTextContent(
-        'A very cool blog', 'Miss Vanjie'
-      )
-    })
+      'A very cool blog', 'Miss Vanjie'
+    )
+  })
 
   test('after clicking the button, url and likes are displayed', () => {
     component = render(
-        <Blog blog={blog} />
-      )
-  
+      <Blog blog={blog} />
+    )
+
     const button = component.getByText('view')
     fireEvent.click(button)
 
     expect(component.container).toHaveTextContent(
-        'www.vanj.com', 0
-      )
+      'www.vanj.com', 0
+    )
   })
 
   test('clicking like button twice calls event handler twice', () => {
     const mockHandler = jest.fn()
-  
+
     const component = render(
       <Blog blog={blog} handleLike={mockHandler} />
     )
-  
+
     const button = component.getByText('like')
     fireEvent.click(button)
     fireEvent.click(button)
 
-  
+
     expect(mockHandler.mock.calls).toHaveLength(2)
   })
-  
+
 
 })

@@ -25,9 +25,9 @@ const User = () => {
       <div>
         <h2 className="title">{user.name}</h2>
         <div className="divider">
-        
+
         added blogs
-      </div>
+        </div>
 
         <List>
           {user.blogs.map(blog => <List.Item key={blog.id}>{blog.title}</List.Item>)}

@@ -48,7 +48,7 @@ const Comments = (props) => {
 
       <div className="divider">
         {props.comments.length > 0 ?
-        <p>Comments</p> : <p>No comments yet</p>}
+          <p>Comments</p> : <p>No comments yet</p>}
       </div>
 
       {props.comments.map(comment =>

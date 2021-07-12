@@ -127,55 +127,6 @@ describe('when a blog is posted to api', () => {
       .expect(400)
       .expect('Content-Type', /application\/json/)
   })
-
-  test('operation fails with proper error if token is missing', async () => {
-    const newBlog = {
-      title: 'Blazing Fast Delightful Testing',
-      author: 'Rick Hanlon',
-    }
-
-    await api
-      .post('/api/blogs')
-      .send(newBlog)
-      .expect(401)
-      .expect('Content-Type', /application\/json/)
-  })
-
-  describe('and it is saved to database', () => {
-    let result
-    beforeEach(async () => {
-      const newBlog = {
-        title: 'Great developer experience',
-        author: 'Hector Ramos',
-        url: 'https://jestjs.io/blog/2017/01/30/a-great-developer-experience',
-        likes: 7
-      }
-
-      result = await api
-        .post('/api/blogs')
-        .send(newBlog)
-        .set(headers)
-    })
-
-    test('it can be removed', async () => {
-
-      const initialBlogs = await helper.blogsInDb()
-      const blogToDelete = initialBlogs[0]
-
-      await api
-        .delete(`/api/blogs/${blogToDelete.id}`)
-        .set(headers)
-        .expect(204)
-
-      const blogsAtEnd = await helper.blogsInDb()
-      expect(blogsAtEnd.length).toBe(initialBlogs.length - 1)
-
-      const titles = blogsAtEnd.map(b => b.title)
-      expect(titles).not.toContain(
-        blogToDelete.title
-      )
-    })
-  })
 })
 
 describe('creation of a user', () => {
@@ -201,27 +152,7 @@ describe('creation of a user', () => {
     expect(usernames).toContain(newUser.username)
   })
 
-  test('creation fails with proper statuscode and message if username already taken', async () => {
-    const newUser = {
-      username: 'johndoe',
-      name: 'John Doe',
-      password: 'sekred',
-    }
-
-    await api
-      .post('/api/users')
-      .send(newUser)
-
-    const result = await api
-      .post('/api/users')
-      .send(newUser)
-      .expect(400)
-      .expect('Content-Type', /application\/json/)
-
-    expect(result.body.error).toContain('`username` to be unique')
-  })
-
-  test('creation fails with proper statuscode and message if username already taken', async () => {
+  test('creation fails with proper statuscode and message if password too short', async () => {
     const newUser = {
       username: 'janedoe',
       name: 'Jane Doe',

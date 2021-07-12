@@ -6,12 +6,12 @@
 //         return state
 //     }
 //   }
-    
+
 //   export const filterChange = (filter) => {
 //     return {
 //       type: 'SET_FILTER',
 //       filter,
 //     }
 //   }
-   
-//   export default filterReducer  
+
+//   export default filterReducer

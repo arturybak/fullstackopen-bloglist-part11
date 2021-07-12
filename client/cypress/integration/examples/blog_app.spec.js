@@ -18,9 +18,9 @@ describe('Blog app', function() {
 
   describe('Login',function() {
     it('succeeds with correct credentials', function() {
-      
+
       cy.get('#username').type('arcik')
-      cy.get('#password').type('testowe')  
+      cy.get('#password').type('testowe')
 
       cy.contains('login').click()
       cy.contains('Artur Rybka logged-in')
@@ -68,7 +68,7 @@ describe('Blog app', function() {
         cy.contains('second blog').parent().contains('1 likes')
       })
       it.only('and are displayed in correct order', function () {
-        cy.get('[class=viewButton]').click({multiple: true})
+        cy.get('[class=viewButton]').click({ multiple: true })
         cy.contains('second blog').parent().find('button').contains('like').as('likeButton2')
         for(let i = 0; i < 4; i++) {
           cy.get('@likeButton2').click()
@@ -91,9 +91,9 @@ describe('Blog app', function() {
         cy.contains('third blog').parent().find('button').contains('remove').as('removeButton')
         cy.get('@removeButton').click()
         cy.get('.success')
-        .should('contain', 'Blog third blog has been removed')
-        .and('have.css', 'color', 'rgb(0, 128, 0)')
-        .and('have.css', 'border-style', 'solid')      
+          .should('contain', 'Blog third blog has been removed')
+          .and('have.css', 'color', 'rgb(0, 128, 0)')
+          .and('have.css', 'border-style', 'solid')
       })
     })
   })

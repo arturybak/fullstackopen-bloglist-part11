@@ -4,7 +4,7 @@ import { useRouteMatch } from 'react-router-dom'
 import { like, remove } from '../reducers/blogReducer'
 import Comments from './Comments'
 import { setNotification } from '../reducers/notificationReducer'
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory } from 'react-router-dom'
 import { Box, Icon, Level, Button } from 'react-bulma-components'
 
 const Blog = ({ blog = null, user, detailed = false }) => {
@@ -28,7 +28,7 @@ const Blog = ({ blog = null, user, detailed = false }) => {
         dispatch(like(blog))
         dispatch(setNotification(`You liked ${blog.title}`))
       } catch (error) {
-        dispatch(setNotification(`Like unsuccessful`, 'danger'))
+        dispatch(setNotification('Like unsuccessful', 'danger'))
         console.log(error)
       }
     }
