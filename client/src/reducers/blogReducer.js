@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import blogService from '../services/blogs'
 
 const reducer = (state = [], action) => {

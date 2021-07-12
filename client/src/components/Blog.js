@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useRouteMatch } from 'react-router-dom'
@@ -19,7 +20,7 @@ const Blog = ({ blog = null, user, detailed = false }) => {
 
   try {
     const match = useRouteMatch('/blogs/:id')
-    if (blog == null) {
+    if (blog === null) {
       blog = blogs.find(u => u.id === match.params.id)
     }
 

@@ -36,6 +36,7 @@ const User = () => {
     )
 
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
     return null
   }

@@ -22,6 +22,7 @@ const Comments = (props) => {
       //console.log(newComment)
       newComment.setEmpty()
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error)
     }
   }

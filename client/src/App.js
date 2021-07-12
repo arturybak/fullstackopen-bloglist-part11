@@ -51,7 +51,6 @@ const App = () => {
     dispatch(logout())
 
     dispatch(setNotification('Logged out successfully'))
-    console.log('logged out')
   }
 
   const blogFormRef = useRef()
@@ -93,7 +92,7 @@ const App = () => {
 
                     </Route>
                     <Route path="/">
-                      {user == null ?
+                      {user === null ?
                         <LoginForm /> :
                         <Togglable buttonLabel="create new blog" ref={blogFormRef}>
                           <BlogForm />
@@ -106,7 +105,7 @@ const App = () => {
               </Section>
               <Switch>
                 <Route exact path="/">
-                  {user == null ?
+                  {user === null ?
                     null :
                     <div>
                       {blogs && blogs.map(blog =>

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import loginService from '../services/login'
 import blogService from '../services/blogs'
 

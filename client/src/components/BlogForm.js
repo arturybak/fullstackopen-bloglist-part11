@@ -37,7 +37,7 @@ const BlogForm = () => {
 
   return (
     <div>
-      <h2 className="title is-5">what's your blog?</h2>
+      <h2 className="title is-5">what is your blog?</h2>
       <br />
       <form onSubmit={addBlog}>
         <Field>

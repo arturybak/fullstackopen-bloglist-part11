@@ -28,6 +28,7 @@ const update = async (id, newObject) => {
 
 const comment = async (id, newComment) => {
   const response = await axios.post(`${baseUrl}/${id}/comments`, newComment)
+  // eslint-disable-next-line no-console
   console.log(response)
   return response.data
 }
