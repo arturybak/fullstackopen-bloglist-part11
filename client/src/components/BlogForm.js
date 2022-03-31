@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { createBlog } from '../reducers/blogReducer'
 import { setNotification } from '../reducers/notificationReducer'
 
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 import { Button, Form, Icon } from 'react-bulma-components'
 
 const { Input, Field, Control, Label } = Form
@@ -42,21 +42,21 @@ const BlogForm = () => {
       <form onSubmit={addBlog}>
         <Field>
           <Label>title</Label>
-          <Control iconLeft>
+          <Control >
             <Input {...title.field} />
             <Icon align="left" className="fas fa-quote-right" />
           </Control>
         </Field>
         <Field>
           <Label>author</Label>
-          <Control iconLeft>
+          <Control >
             <Input {...author.field} />
             <Icon align="left" className="fas fa-user" />
           </Control>
         </Field>
         <Field>
           <Label>url</Label>
-          <Control iconLeft>
+          <Control >
             <Input {...url.field} />
             <Icon align="left" className="fas fa-link" />
           </Control>

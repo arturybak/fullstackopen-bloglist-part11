@@ -5,7 +5,7 @@ import { setNotification } from '../reducers/notificationReducer'
 import { login } from '../reducers/userReducer'
 
 
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 import { Button, Form, Icon } from 'react-bulma-components'
 
 const { Input, Field, Control, Label } = Form
@@ -37,7 +37,7 @@ const LoginForm = () => {
       <form onSubmit={handleLogin}>
         <Field>
           <Label>username</Label>
-          <Control iconLeft>
+          <Control >
             <Input id="username" type="text" value={username.field.value} name={username.field.name} onChange={username.field.onChange} />
             <Icon align="left" className="fas fa-user" />
 
@@ -45,7 +45,7 @@ const LoginForm = () => {
         </Field>
         <Field>
           <Label>password</Label>
-          <Control iconLeft>
+          <Control >
             <Input id="password" type="password" value={password.field.value} name={password.field.name} onChange={password.field.onChange} />
             <Icon align="left" className="fas fa-lock" />
           </Control>

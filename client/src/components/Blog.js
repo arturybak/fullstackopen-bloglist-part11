@@ -1,17 +1,17 @@
 /* eslint-disable no-console */
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useRouteMatch } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 import { like, remove } from '../reducers/blogReducer'
 import Comments from './Comments'
 import { setNotification } from '../reducers/notificationReducer'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Box, Icon, Level, Button } from 'react-bulma-components'
 
 const Blog = ({ blog = null, user, detailed = false }) => {
 
   const dispatch = useDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
 
 
   const blogs = useSelector(({ blogs }) => {
@@ -19,7 +19,7 @@ const Blog = ({ blog = null, user, detailed = false }) => {
   })
 
   try {
-    const match = useRouteMatch('/blogs/:id')
+    const match = useMatch('/blogs/:id')
     if (blog === null) {
       blog = blogs.find(u => u.id === match.params.id)
     }
@@ -38,7 +38,7 @@ const Blog = ({ blog = null, user, detailed = false }) => {
       if (window.confirm(`Remove blog ${blog.title} by ${blog.author}?`)) {
         try {
           dispatch(remove(blog.id))
-          history.push('/')
+          navigate('/')
           dispatch(setNotification(`Blog ${blog.title} has been removed`))
         } catch (error) {
           dispatch(setNotification(`Blog '${blog.title}' was already removed from server`, 'danger'))

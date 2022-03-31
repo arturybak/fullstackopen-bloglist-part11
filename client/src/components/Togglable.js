@@ -1,6 +1,6 @@
 import React, { useState, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 import { Button } from 'react-bulma-components'
 
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 import { List } from 'react-bulma-components'
 import { useSelector } from 'react-redux'
-import { useRouteMatch } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 import '@creativebulma/bulma-divider/dist/bulma-divider.css'
 
 
@@ -14,7 +14,7 @@ const User = () => {
   })
 
   try {
-    const match = useRouteMatch('/users/:id')
+    const match = useMatch('/users/:id')
     const user = users.find(u => u.id === match.params.id)
 
     if (!user) {
@@ -29,9 +29,9 @@ const User = () => {
         added blogs
         </div>
 
-        <List>
-          {user.blogs.map(blog => <List.Item key={blog.id}>{blog.title}</List.Item>)}
-        </List>
+        <ul>
+          {user.blogs.map(blog => <li key={blog.id}>{blog.title}</li>)}
+        </ul>
       </div>
     )
 

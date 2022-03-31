@@ -3,7 +3,7 @@ import { useTemplate } from '../stateHelper'
 import { comment } from '../reducers/blogReducer'
 import { useDispatch } from 'react-redux'
 import '@creativebulma/bulma-divider/dist/bulma-divider.css'
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 
 import { Button, Media, Content, Form } from 'react-bulma-components'
 const { Input, Field, Control } = Form

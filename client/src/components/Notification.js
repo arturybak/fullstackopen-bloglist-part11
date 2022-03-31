@@ -1,5 +1,5 @@
 import React from 'react'
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 import { Notification } from 'react-bulma-components'
 import { useSelector } from 'react-redux'
 

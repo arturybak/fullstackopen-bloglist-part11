@@ -10,16 +10,16 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-mongoose.set('useCreateIndex', true)
+//mongoose.set('useCreateIndex', true)
 
-mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.MONGODB_URI)
   .then(() => {
     logger.info('connected to MongoDB')
   })
   .catch((error) => {
     logger.error('error connection to MongoDB:', error.message)
   })
-mongoose.set('useFindAndModify', false)
+//mongoose.set('useFindAndModify', false)
 
 app.use(middleware.tokenExtractor)
 app.use(cors())

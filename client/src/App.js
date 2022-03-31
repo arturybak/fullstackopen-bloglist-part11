@@ -9,10 +9,11 @@ import NavBarR from './components/Navbar'
 import NotificationR from './components/Notification'
 import Togglable from './components/Togglable'
 import {
-  Switch, Route
+  Routes, Route
 } from 'react-router-dom'
 
-import 'react-bulma-components/dist/react-bulma-components.min.css'
+//import 'react-bulma-components/dist/react-bulma-components.min.css'
+import 'bulma/css/bulma.min.css'
 import { Container, Columns, Hero, Heading, Section, Box } from 'react-bulma-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { setNotification } from './reducers/notificationReducer'
@@ -77,45 +78,24 @@ const App = () => {
             <Columns.Column size={8} offset={2} className='has-text-centered'>
               <Section>
                 <Box>
-                  <Switch>
-                    <Route path="/users/:id">
-                      <User />
-                    </Route>
+                  <Routes>
+                    <Route path="/users/:id/*" element={<User />} />
 
-                    <Route path="/blogs/:id">
-                      <Blog detailed user={user}/>
-                    </Route>
+                    <Route path="/blogs/:id/*" element={<Blog detailed user={user} />} />
 
-                    <Route path="/users">
+                    <Route path="/users/*" element={<UserList />} />
+                    <Route path="/" element={user === null ?
+                      <LoginForm /> :
+                      <Togglable buttonLabel="create new blog" ref={blogFormRef}>
+                        <BlogForm />
+                      </Togglable>} />
 
-                      <UserList />
-
-                    </Route>
-                    <Route path="/">
-                      {user === null ?
-                        <LoginForm /> :
-                        <Togglable buttonLabel="create new blog" ref={blogFormRef}>
-                          <BlogForm />
-                        </Togglable>
-                      }
-                    </Route>
-
-                  </Switch>
+                  </Routes>
                 </Box>
               </Section>
-              <Switch>
-                <Route exact path="/">
-                  {user === null ?
-                    null :
-                    <div>
-                      {blogs && blogs.map(blog =>
-                        <Blog key={blog.id} blog={blog} user={user} />
-                      )}
-                    </div>
-                  }
-
-                </Route>
-              </Switch>
+              <Routes>
+                <Route path="/" element={user === null ? null : <div>{blogs && blogs.map(blog => <Blog key={blog.id} blog={blog} user={user} />)}</div>} />
+              </Routes>
             </Columns.Column>
           </Columns>
         </Container>
